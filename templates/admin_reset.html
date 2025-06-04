@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reset Voting Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h2>Reset Voting Data</h2>
+    <form method="POST">
+         <button type="submit">Reset Data</button>
+    </form>
+    <a href="/logout_admin">Logout Admin</a>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+         {% for category, message in messages %}
+             <p style="color:green;">{{ message }}</p>
+         {% endfor %}
+      {% endif %}
+    {% endwith %}
+</body>
+</html>

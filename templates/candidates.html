@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Candidates Information</title>
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Candidates Standing for Positions</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Election</th>
+          <th>Position</th>
+          <th>Candidate Name</th>
+          <th>Party</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for candidate in candidates %}
+        <tr>
+          <td>{{ candidate.election }}</td>
+          <td>{{ candidate.position }}</td>
+          <td>{{ candidate.name }}</td>
+          <td>{{ candidate.party }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/">Back to Home</a>
+  </div>
+</body>
+</html>

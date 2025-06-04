@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cast Your Vote</title>
+  <!-- Link to shared CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Cast Your Vote</h2>
+    <form method="POST">
+      {% for position, group in candidates|groupby('position') %}
+        <h3>{{ position }}</h3>
+        {% for candidate in group %}
+          <label>
+            <input type="radio" name="{{ position }}" value="{{ candidate.id }}" required>
+            {{ candidate.name }} - {{ candidate.party }}
+          </label><br>
+        {% endfor %}
+        <br>
+      {% endfor %}
+      <button type="submit">Submit Vote</button>
+    </form>
+  </div>
+</body>
+</html>
